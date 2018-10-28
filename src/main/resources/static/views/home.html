@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Atm Location example</title>
+</head>
+<body ng-app="demo">
+
+<div class="container" ng-controller="AtmController">
+    <div class="row form-group">
+        <label>latitude</label> <input type="text" ng-model="coordinates.latitude" class="input-sm spacing"/>
+        <label>longitudes</label> <input type="text" ng-model="coordinates.longitudes" class="input-sm spacing"/>
+        <label>radius</label> <input type="text" ng-model="radius" class="input-sm spacing"/>
+        <label>unit</label>
+        <select ng-model="unit" name="unit">
+            <option value="KILOMETERS">KILOMETERS</option>
+            <option value="MILES">MILES</option>
+        </select>
+        <button ng-click="updateMap()" class="btn btn-sm btn-info">Update map</button>
+    </div>
+    <div ng-if="noResults" class="row form-group">
+        <h3><span class="label label-info text-center">No results</span></h3>
+    </div>
+    <div ng-if="error" class="row form-group">
+        <h3><span class="label label-danger text-center">Error occurred.</span></h3>
+    </div>
+    <div class="row form-group">
+        <div class="map" id="map"></div>
+    </div>
+</div>
+
+</body>
+<script src="lib/angular.min.js"></script>
+<script src="lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="lib/leaflet/leaflet.js"></script>
+<script src="js/app.js"></script>
+<script src="js/AtmController.js"></script>
+<script src="js/AtmService.js"></script>
+
+<link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css"/>
+<link rel="stylesheet" href="lib/leaflet/leaflet.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+</html>
